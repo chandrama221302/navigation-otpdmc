@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url(bg.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+            padding: 0px 0px;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        header .openmenubaar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .openmenubaar img {
+            width: 35px;
+            cursor: pointer;
+        }
+
+        .Logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Logo .imglogo {
+            width: 100px;
+        }
+
+        header .custom-navbar ul {
+            list-style: none;
+        }
+
+        header .custom-navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        header .custom-navbar ul li a {
+            padding: 20px;
+            font-size: 20px;
+            color: #333;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        header .custom-navbar ul li a:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        header .custom-navbar ul li ul {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            background: #fff;
+            display: none;
+        }
+
+        header .custom-navbar ul li ul li {
+            width: 100%;
+            border-top: 1px solid #35353593;
+        }
+
+        header .custom-navbar ul li ul li ul {
+            left: -200px;
+            top: 0;
+        }
+
+        header .custom-navbar ul li:focus-within > ul,
+        header .custom-navbar ul li:hover > ul {
+            display: initial;
+        }
+
+        #menu-baar {
+            display: none;
+        }
+
+        header label {
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px;
+                background-color: #ffffff;
+                z-index: 100;
+            }
+
+            header label {
+                display: initial;
+            }
+
+            header .custom-navbar {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border-top: 1px solid #00000093;
+                z-index: 99;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-80px);
+                transition: transform 0.6s ease, opacity 0.6s ease, visibility 0.6s ease;
+
+                /* Fix: Add height and scrolling */
+               max-height: 90vh; /* Maximum height 80% of viewport */
+               overflow-y: auto; /* Enable vertical scrolling */
+            }
+
+            header .custom-navbar ul {
+                width: 100%;
+                padding: 0px 0;
+            }
+
+            header .custom-navbar ul li {
+                width: 100%;
+            }
+
+            header .custom-navbar ul li ul {
+                position: relative;
+                width: 100%;
+            }
+
+            header .custom-navbar ul li ul li {
+                background: #eee;
+            }
+
+            header .custom-navbar ul li ul li ul {
+                width: 100%;
+                left: 0px;
+            }
+
+            #menu-baar:checked ~ .custom-navbar {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0px);
+                z-index: 99;
+            }
+        }
+
+        @media (min-width: 769px) {
+            header {
+                padding: 0px 0px;
+                background-color: #fff;
+            }
+            .Logo .imglogo {
+                width: 100px;
+                margin-left: 30px;
+            }
+            header .custom-navbar ul {
+                width: 100%;
+                padding: 0px 0;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+
+       <!-- Start Header & Navbaar( HTML ) -------------------------------------------------------------  -->
+    <header>
+        <a href="#" class="Logo"> 
+            <img src="OTP_DMC_LOGO.png" alt="Logo" class="imglogo"> 
+        </a>
+
+        <input type="checkbox" id="menu-baar">
+        <div class="openmenubaar">
+            <label for="menu-baar"> 
+                <img src="side-baar.jpeg" alt="Menu"> 
+            </label>
+        </div>
+
+        <nav class="custom-navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Destination </a> 
+                    <ul>
+                        <li><a href="#">Domestic </a>
+                            <ul>
+                                <li><a href="#">Ayodhya</a></li>
+                                <li><a href="#">Kashi</a></li>
+                                <li><a href="#">Prayagraj</a></li>
+                                <li><a href="#">Lucknow</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">International </a> 
+                            <ul>
+                                <li><a href="#">Singapore</a></li>
+                                <li><a href="#">Malaysia</a></li>
+                                <li><a href="#">Thailand</a></li>
+                                <li><a href="#">Indonatia (Bali) </a></li>
+                                <li><a href="#">UAE Dubai </a></li>
+                                <li><a href="#">Vietnam </a></li>
+                                <li><a href="#">Turkey</a></li>
+                                <li><a href="#">See More</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <!-- End Header & Navbaar ( HTML )----------------------------------------------------------------------------  -->
+
+    
+</body>
+</html>
